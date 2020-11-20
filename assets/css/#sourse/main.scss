@@ -1,0 +1,79 @@
+@import "fonts";
+@import "nullstyle";
+@import "variables";
+@import "components/header";
+
+html,
+body {
+    font-family: $font-family;
+    font-size: 18px;
+	font-weight: 500;
+	color: $color1;
+}
+
+/*--------------------------------Common--------------------------------*/
+%title {
+	font-family: $font-family;
+	font-weight: 800;
+	color: $color1;
+	text-transform: uppercase;
+}
+.title-1 {
+	@extend %title;
+	font-size: 80px;
+	line-height: (86/80);
+}
+
+.title-2 {
+	@extend %title;
+	font-size: 40px;
+	line-height: 1;
+}
+.subtitle-left,
+.subtitle-right {
+	position: relative;
+	font-size: 22px;
+	line-height: (32/22);
+	color: $color1;
+	text-align: right;
+	text-transform: uppercase;
+	opacity: 0.5;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: calc(50% - 0.5px);
+		right: calc(100% + 24px);
+		height: 1px;
+		width: 80px;
+		background-color: $color1;
+		opacity: 0.5;
+	}
+}
+
+.slider-nav {
+	display: flex;
+	z-index: 2;
+
+	& > * {
+		cursor: pointer;
+	}
+
+	&__next {
+		margin-left: 20.35px;
+	}
+}
+
+.swiper-pagination-bullet {
+	margin: 0;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	background: transparent;
+	opacity: 1;
+
+	&-active {
+		background: transparent;
+	}
+}
+/*--------------------------------Other--------------------------------*/
