@@ -1,11 +1,26 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Fira Sans';
+  src: url("../fonts/FiraSansLight.eot");
+  src: url("../fonts/FiraSansLight.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSansLight.woff2") format("woff2"), url("../fonts/FiraSansLight.woff") format("woff"), url("../fonts/FiraSansLight.ttf") format("truetype"), url("../fonts/FiraSansLight.svg#FiraSansLight") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
   src: url("../fonts/../fonts/FiraSans-Regular.eot");
   src: url("../fonts/FiraSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSans-Regular.woff2") format("woff2"), url("../fonts/FiraSans-Regular.woff") format("woff"), url("../fonts/FiraSans-Regular.ttf") format("truetype"), url("../fonts/FiraSans-Regular.svg#../fonts/FiraSans-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("../fonts/FiraSans-Medium.eot");
+  src: url("../fonts/FiraSans-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSans-Medium.woff2") format("woff2"), url("../fonts/FiraSans-Medium.woff") format("woff"), url("../fonts/FiraSans-Medium.ttf") format("truetype"), url("../fonts/FiraSans-Medium.svg#FiraSans-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
@@ -14,16 +29,6 @@
   src: url("../fonts/FiraSans-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSans-ExtraBold.woff2") format("woff2"), url("../fonts/FiraSans-ExtraBold.woff") format("woff"), url("../fonts/FiraSans-ExtraBold.ttf") format("truetype"), url("../fonts/FiraSans-ExtraBold.svg#../fonts/FiraSans-ExtraBold") format("svg");
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fira Sans';
-  src: url("../fonts/FiraSansLight.eot");
-  src: url("../fonts/FiraSansLight.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSansLight.woff2") format("woff2"), url("../fonts/FiraSansLight.woff") format("woff"), url("../fonts/FiraSansLight.ttf") format("truetype"), url("../fonts/FiraSansLight.svg#FiraSansLight") format("svg");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
 }
 
 /*Обнуление*/
@@ -93,6 +98,7 @@ ul li {
 
 img {
   vertical-align: top;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -105,6 +111,200 @@ h1, h2, h3, h4, h5, h6 {
 header {
   position: relative;
   height: 100vh;
+  overflow: hidden;
+}
+
+.header__title {
+  position: absolute;
+  top: 15px;
+  left: -14px;
+  font-size: 200px;
+  line-height: 156px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0.07;
+  z-index: 5;
+}
+
+.header__map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  transform: translate(62px, -770px);
+}
+
+.header__map svg {
+  width: 1062px;
+  height: 1265px;
+}
+
+.header__arrows {
+  cursor: pointer;
+  position: absolute;
+  left: 209px;
+  bottom: 41px;
+  z-index: 5;
+  animation: header-arrows-animation 1s linear infinite;
+}
+
+@keyframes header-arrows-animation {
+  0% {
+    opacity: 0.1;
+  }
+  70% {
+    opacity: 0.7;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translateY(0px);
+  }
+}
+
+.header__aside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 169px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 100;
+}
+
+.header__aside-logo {
+  width: 168px;
+}
+
+.logo {
+  display: block;
+}
+
+.menu {
+  margin-top: 118px;
+}
+
+.menu__list, .menu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__item {
+  margin-bottom: 37px;
+}
+
+.menu__item:hover span {
+  color: #4AF6CD;
+}
+
+.menu__item span {
+  margin-top: 6px;
+  font-style: 12px;
+  line-height: 1.16667;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.menu__ic {
+  fill: #fff;
+  transition: fill 0.3s;
+}
+
+.menu__item:hover .menu__ic {
+  fill: #4AF6CD;
+}
+
+.menu__ic-surf {
+  width: 59px;
+  height: 46px;
+}
+
+.menu__ic-travel {
+  width: 50px;
+  height: 32px;
+}
+
+.menu__ic-sleep {
+  width: 39px;
+  height: 40px;
+}
+
+.menu__ic-shop {
+  width: 16px;
+  height: 44px;
+}
+
+.header__search svg {
+  width: 24px;
+}
+
+.header__search svg path {
+  fill: #fff;
+}
+
+.header__date,
+.header__location {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header__date {
+  bottom: 91px;
+  margin-top: 31px;
+}
+
+.header__date-num {
+  font-size: 72px;
+  line-height: 0.88889;
+  font-weight: 800;
+}
+
+.header__date-row {
+  display: flex;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.1875;
+  font-weight: 300;
+}
+
+.header__date-year {
+  position: relative;
+  margin-left: 21px;
+}
+
+.header__date-year::before {
+  content: "|";
+  position: absolute;
+  left: -13px;
+}
+
+.header__location {
+  bottom: 45.8px;
+  display: flex;
+  align-items: center;
+}
+
+.header__location svg {
+  width: 10.84px;
+  height: 12.84px;
+}
+
+.header__location span {
+  display: inline-block;
+  margin-left: 8.1px;
+  font-size: 12px;
+  line-height: 1.16667;
+  font-weight: 300;
+  letter-spacing: 1.05px;
 }
 
 .header__slider-item {
@@ -163,7 +363,7 @@ header {
   height: 4px;
   width: 100%;
   background-color: #fff;
-  transition: background-color 0.3s;
+  transition: background-color 0.6s;
 }
 
 .swiper-pagination-bullet-active .custom-pagination__line {
@@ -256,7 +456,7 @@ html, body {
 
 .slider-nav {
   display: flex;
-  z-index: 2;
+  z-index: 5;
 }
 
 .slider-nav > * {

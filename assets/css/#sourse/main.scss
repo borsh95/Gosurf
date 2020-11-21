@@ -29,6 +29,7 @@ body {
 	font-size: 40px;
 	line-height: 1;
 }
+
 .subtitle-left,
 .subtitle-right {
 	position: relative;
@@ -53,7 +54,7 @@ body {
 
 .slider-nav {
 	display: flex;
-	z-index: 2;
+	z-index: 5;
 
 	& > * {
 		cursor: pointer;

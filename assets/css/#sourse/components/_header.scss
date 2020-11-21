@@ -1,6 +1,204 @@
 header {
 	position: relative;
 	height: 100vh;
+	overflow: hidden;
+}
+
+.header__title {
+	position: absolute;
+	top: 15px;
+	left: -14px;
+	font-size: 200px;
+	line-height: 156px;
+	font-weight: 800;
+	color: $color1;
+	text-transform: uppercase;
+	opacity: 0.07;
+	z-index: 5;
+}
+
+.header__map {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	transform: translate(62px, -770px);
+	
+	svg {
+		width: 1062px;
+		height: 1265px;
+	}
+}
+
+.header__arrows {
+	cursor: pointer;
+	position: absolute;
+	left: 209px;
+	bottom: 41px;
+	z-index: 5;
+	animation: header-arrows-animation 1s linear infinite;
+
+	@keyframes header-arrows-animation {
+		0% {
+			opacity: 0.1;
+		}
+		70% {
+			opacity: 0.7;
+			transform: translateY(25px);
+		}
+		100% {
+			opacity: 0.2;
+			transform: translateY(0px);
+		}
+	}
+}
+
+.header__aside {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 169px;
+	border-right: 1px solid rgba(255, 255, 255, 0.25);
+	z-index: 100;
+
+	&-logo {
+		width: 168px;
+	}
+
+	@at-root .logo {
+		display: block;
+	}
+
+	@at-root .menu {
+		margin-top: 118px;
+
+		&__list,
+		&__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&__item {
+			margin-bottom: 37px;
+
+			&:hover span {
+				color: $color3;
+			}
+
+			span {
+				margin-top: 6px;
+				font-style: 12px;
+				line-height: (14/12);
+				font-weight: 500;
+				letter-spacing: 3px;
+				color: $color1;
+				transition: color $duration;
+			}
+		}
+
+		&__ic {
+			fill: $color1;
+			transition: fill $duration;
+		
+			.menu__item:hover & {
+				fill: $color3;	
+			}
+
+			&-surf {
+				width: 59px;
+				height: 46px;
+			}
+
+			&-travel {
+				width: 50px;
+				height: 32px;
+			}
+
+			&-sleep {
+				width: 39px;
+				height: 40px;
+			}
+
+			&-shop {
+				width: 16px;
+				height: 44px;
+			}
+		}
+	}
+}
+
+.header__search {
+	 svg {
+		 width: 24px;
+
+		 path {
+			 fill: $color1;
+		 }
+	 }
+}
+
+.header__date, 
+.header__location {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.header__date {
+	bottom: 91px;
+	margin-top: 31px;
+
+	&-num {
+		font-size: 72px;
+		line-height: (64/72);
+		font-weight: 800;
+	}
+
+	&-row {
+		display: flex;
+		margin-top: 6px;
+		font-size: 16px;
+		line-height: (19/16);
+		font-weight: 300;
+	}
+
+	&-year {
+		position: relative;
+		margin-left: 21px;
+
+		&::before {
+			content: "|";
+			position: absolute;
+			left: -13px;
+		}
+	}
+	
+}
+
+.header__location {
+	bottom: 45.8px;
+	display: flex;
+	align-items: center;
+
+	svg {
+		width: 10.84px;
+		height: 12.84px;
+	}
+
+	span {
+		display: inline-block;
+		margin-left: 8.1px;
+		font-size: 12px;
+		line-height: (14/12);
+		font-weight: 300;
+		letter-spacing: 1.05px;
+	}
 }
 
 .header__slider {
@@ -62,10 +260,10 @@ header {
 			height: 4px;
 			width: 100%;
 			background-color: $color1;
-			transition: background-color $duration;
+			transition: background-color 0.6s;
 
 			.swiper-pagination-bullet-active & {
-				background-color: #4AF6CD;
+				background-color: $color3;
 			}
 		}
 
