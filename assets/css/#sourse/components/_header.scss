@@ -36,19 +36,65 @@ header {
 	left: 209px;
 	bottom: 41px;
 	z-index: 5;
-	animation: header-arrows-animation 1s linear infinite;
+	animation: header-arrows-animation 1.4s linear infinite;
 
 	@keyframes header-arrows-animation {
 		0% {
 			opacity: 0.1;
 		}
-		70% {
+		75% {
 			opacity: 0.7;
 			transform: translateY(25px);
 		}
 		100% {
 			opacity: 0.2;
 			transform: translateY(0px);
+		}
+	}
+}
+
+.header__map {
+	&-point {
+		opacity: 0;
+	}
+	@at-root .first-point {
+		animation: fadeIn-poit 1s forwards 1s;
+	}
+
+	@at-root .second-point {
+		animation: fadeIn-poit 1s forwards 2s;
+	}
+
+	@at-root .third-point {
+		animation: fadeIn-poit 1s forwards 3s;
+	}
+
+	@at-root .fourth-point {
+		animation: fadeIn-poit 1s forwards 4s;
+	}
+
+	@at-root .fifth-point {
+		animation: fadeIn-poit 0.7s forwards 5s;
+	}
+
+	.map-line {
+		stroke-dasharray: 555;
+		stroke-dashoffset: 555;
+		animation: line-animation 2s forwards 6s;
+	}
+
+	@keyframes fadeIn-poit {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes line-animation {
+		to {
+			stroke-dashoffset: 0;
 		}
 	}
 }
