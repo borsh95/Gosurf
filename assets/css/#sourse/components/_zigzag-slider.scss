@@ -1,0 +1,124 @@
+.zigzag-slider {
+	position: relative;
+	padding-top: 53px;
+	color: white;
+	text-transform: uppercase;
+
+	.slider-nav {
+		position: absolute;
+		top: 0;
+		right: 83px;
+	}
+
+	&__slide {
+		position: relative;
+		width: 400px;
+		height: 750px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		&:nth-of-type(4n + 1) {
+			margin-top: 32px;
+			width: 390px;
+		}
+
+		&:nth-of-type(4n + 3) {
+			margin-top: 89px;
+			width: 390px;
+		}
+
+		&-inner {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding-top: 72px;
+			padding-left: 40px;
+			background-color: rgba(28, 33, 33, 0.85);
+			transition: background-color $duration;
+
+			.swiper-slide-active &,
+			&:hover {
+				background-color: transparent;
+			}
+		}
+
+		&-title {
+			font-size: 40px;
+			line-height: 1;
+			font-weight: 800;
+		}
+
+		&-location {
+			position: absolute;
+			left: 38px;
+			bottom: 80px;
+			width: 0;
+			height: 0;
+			font-size: 18px;
+			line-height: (22/18);
+			letter-spacing: 9px;
+			font-weight: 400;
+			white-space: nowrap;
+			transform: rotate(-90deg);
+
+			span {
+				font-weight: 200;
+			}
+		}
+
+		&-btn {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity $duration;
+
+			.swiper-slide-active &,
+			.zigzag-slider__slide:hover  & {
+				opacity: 1;
+				pointer-events: all;
+			}
+		}
+	}
+
+	@include desctop-mid {
+		&__slide {
+			height: 650px;
+		}
+	}
+
+	@include desctop-min {
+		&__slide {
+			padding-right: 80px;
+			height: 490px;
+
+			&:nth-of-type(4n + 1) {
+				margin-top: 23px;
+			}
+	
+			&:nth-of-type(4n + 3) {
+				margin-top: 55px;
+			}
+			
+			&-inner {
+				padding-top: 33px;
+				padding-left: 20px;
+			}
+
+			&-title {
+				font-size: 30px;
+			}
+
+			&-location {
+				left: 20px;
+				bottom: 60px;
+				font-size: 12px;
+			}
+		}
+	}
+}

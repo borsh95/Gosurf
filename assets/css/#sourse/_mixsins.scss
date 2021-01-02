@@ -1,5 +1,17 @@
+@mixin desctop-mid {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin desctop-min {
+    @media (max-width: 1366px) {
+        @content;
+    }
+}
+
 @mixin table {
-    @media (max-width: 1170px) {
+    @media (max-width: 1000px) {
         @content;
     }
 }

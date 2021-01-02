@@ -1,3 +1,5 @@
+@import "./../_mixsins";
+
 header {
 	position: relative;
 	height: 100vh;
@@ -15,6 +17,14 @@ header {
 	text-transform: uppercase;
 	opacity: 0.07;
 	z-index: 5;
+
+	@include desctop-min {
+		font-size: 140px;
+	}
+
+	@include mobile {
+		font-size: 104px;
+	}
 }
 
 .header__map {
@@ -27,6 +37,19 @@ header {
 	svg {
 		width: 1062px;
 		height: 1265px;
+	}
+
+	@include table {
+		transform: translate(93px, -770px);
+	}
+
+	@include mobile {
+		transform: translate(95px, -440px);
+
+		svg {
+			width: 643px;
+			height: auto;
+		}
 	}
 }
 
@@ -50,6 +73,22 @@ header {
 			opacity: 0.2;
 			transform: translateY(0px);
 		}
+	}
+
+	@include desctop-mid {
+		left: 150px;
+	}
+
+	@include desctop-min {
+		left: 130px;
+	}
+
+	@include table {
+		left: 30px;
+	}
+
+	@include mobile {
+		display: none;
 	}
 }
 
@@ -112,10 +151,6 @@ header {
 	border-right: 1px solid rgba(255, 255, 255, 0.25);
 	z-index: 100;
 
-	&-logo {
-		width: 168px;
-	}
-
 	@at-root .logo {
 		display: block;
 	}
@@ -132,6 +167,7 @@ header {
 
 		&__item {
 			margin-bottom: 37px;
+			text-transform: lowercase;
 
 			&:hover span {
 				color: $color3;
@@ -176,6 +212,71 @@ header {
 				height: 44px;
 			}
 		}
+
+		@include desctop-mid {
+			margin-top: 40px;
+
+			&__item {
+				margin-bottom: 30px;
+			}
+		}
+
+		@include desctop-min {
+			&__item {
+				margin-bottom: 15px;
+			}
+		}
+
+		@include table {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 100;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgba(0, 0, 0, 0.95);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity $duration;
+
+			&.active {
+				opacity: 1;
+				pointer-events: all;
+			}
+		}
+	}
+
+	@include desctop-mid {
+		width: 100px;
+	}
+
+	@include table {
+		bottom: auto;
+		flex-direction: row;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		width: auto;
+		background-color: rgba(#fff, 0.2);
+		border-radius: 0 0 10px  0;
+		border: none;
+
+		@at-root .logo {
+			width: 85px;
+		}
+	}
+
+	@include mobile {
+		flex-direction: column;
+		padding-right: 0;
+		width: 90px;
+
+		@at-root .logo {
+			width: auto;
+		}
 	}
 }
 
@@ -187,6 +288,14 @@ header {
 			 fill: $color1;
 		 }
 	 }
+
+	 @include table {
+		 margin-left: 25px;
+	 }
+
+	 @include mobile {
+		margin: 18px 0;
+	}
 }
 
 .header__date, 
@@ -217,6 +326,7 @@ header {
 	&-year {
 		position: relative;
 		margin-left: 21px;
+		
 
 		&::before {
 			content: "|";
@@ -225,6 +335,44 @@ header {
 		}
 	}
 	
+	@include desctop-mid {
+		bottom: 50px;
+
+		&-num {
+			font-size: 58px;
+		}
+	}
+
+	@include table {
+		position: static;
+		margin-top: 0;
+		margin-left: 25px;
+		transform: none;
+	}
+
+	@include mobile {
+		margin-left: 0;
+		margin-bottom: 15px;
+
+		&-num {
+			font-size: 42px;
+			text-align: center;
+		}
+
+		&-row {
+			margin-top: 2px;
+			font-size: 14px;
+		}
+
+		&-year {
+			margin-left: 16px;
+			
+	
+			&::before {
+				left: -10px;
+			}
+		}
+	}
 }
 
 .header__location {
@@ -244,6 +392,23 @@ header {
 		line-height: (14/12);
 		font-weight: 300;
 		letter-spacing: 1.05px;
+	}
+
+	@include desctop-mid {
+		bottom: 20px;
+	}
+
+	@include table{
+		position: static;
+		margin-left: 25px;
+		transform: none;
+	}
+
+	@include mobile {
+		margin-left: 0;
+		span {
+			font-size: 10px;
+		}
 	}
 }
 
@@ -279,12 +444,33 @@ header {
 		display: flex;
 		justify-content: flex-end;
 		width: auto;
+
+		@include desctop-min {
+			right: 25px;
+		}
+
+		@include table {
+			bottom: 15px;
+		}
+
+		@include mobile {
+			display: none;
+		}
 	}
 
 	@at-root  .swiper-container-horizontal > &-pagination .custom-pagination__item{
 		margin: 0;
 		margin-left: 40px;
 		width: 200px;
+
+		@include desctop-min {
+			left: 80px;
+			width: 150px;
+		}
+
+		@include table {
+			width: 130px;
+		}
 	}
 
 	@at-root .custom-pagination {
@@ -324,6 +510,20 @@ header {
 			line-height: (19/16);
 			font-weight: 300;
 		}
+
+		@include table {
+			&__line {
+				height: 4px;
+			}
+
+			&__num {
+				font-size: 18px;
+			}
+
+			&__text {
+				font-size: 14px;
+			}
+		}
 	}
 
 	@at-root .slider-item {
@@ -331,9 +531,6 @@ header {
 			position: absolute;
 			right: 80px;
 			bottom: 115.85px;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
 
 			&-title {
 				margin-top: 5px;
@@ -345,10 +542,51 @@ header {
 			}
 
 			&-btn {
-				display: inline-block;
+				display: block;
 				margin-top: 27px;
+				margin-left: auto;
 				width: 24.15px;
 			}
+		}
+
+		@include desctop-min {
+			&__info {
+				right: 25px;
+
+				&-title {
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		@include table {
+			&__info {
+				bottom: 80px;
+
+				&-btn {
+					margin-top: 20px;
+					width: 21px;
+				}
+			}
+		}
+
+		@include mobile {
+
+			&__info {
+				bottom: 20px;
+
+				&-btn {
+					margin-top: 15px;
+					width: 18px;
+				}
+			}
+		}
+	}
+
+	@include desctop-min {
+		&-nav {
+			top: 120px;
+			right: 25px;
 		}
 	}
 }
