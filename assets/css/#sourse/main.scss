@@ -876,6 +876,14 @@ stroke-linecap:round;
 	&:nth-last-of-type(2) {
 		.holder-slider__descr  {
 			background-size: 45%;
+
+			@include desctop-mid {
+				background-position: right 52px;
+			}
+
+			@include mobile {
+				background-size: 0;
+			}
 		}
 	}
 
@@ -1257,6 +1265,7 @@ input[type=number] {
 				&-mark {
 					cursor: pointer;
 					position: relative;
+					z-index: 10;
 					width: 20px;
 					height: 20px;
 					background-color: #fff;
@@ -1344,15 +1353,16 @@ input[type=number] {
 			text-align: center;
 		}
 
+		&-inner {
+			margin-right: -57px;
+		}
+
 		&-box {
 			flex-direction: column;
 			align-items: center;
 			margin-right: 57px;
+			width: 160px;
 			font-size: 18px;
-
-			&:last-child {
-				margin-right: 0;
-			}
 		}
 
 		&-title {
@@ -1363,6 +1373,7 @@ input[type=number] {
 
 		&-img {
 			height: 103px;
+			min-width: 120px;
 			
 			img {
 				width: 100%;
@@ -1413,13 +1424,99 @@ input[type=number] {
 		&__slide {
 			padding-left: 25px;
 
-			&__info {
+			&-info {
 				padding-top: 50px;
 			}
 
-			&__rating {
+			&-rating {
 				margin: 10px 0 0 -18px;
 			}
+		}
+
+		&__surfboard {
+			min-width: 160px;
+			width: 160px;
+			height: 487.7px;
+		}
+
+		@at-root .surfboard {
+			&__desc {
+
+				&-text {
+					font-size: 18px;
+					left: 35px;
+					transition: transform $duration, opacity 0.1s;
+
+					.surfboard__desc-mark.active + & {
+						transition: transform 0.3s, opacity 0.3s 0.1s;
+					}
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	@include table {
+		&__slider-nav {
+			right: 25px;
+		}
+
+		&__slide {
+			flex-direction: column;
+
+			&-info {
+				padding-top: 15px;
+			}
+
+			&-content {
+				margin-top: 35px;
+			}
+		}
+		
+		&__footer {
+			margin-top: 70px;
+		}
+	}
+
+	@include mobile {
+		&__slide {
+			&-info {
+				padding-top: 15px;
+			}
+
+			&-content {
+				flex-direction: column;
+				margin-top: 35px;
+				padding-left: 0;
+			}
+		}
+
+		@at-root .surfboard {
+			
+
+			&__desc {
+				&:nth-of-type(1) {
+					top: 8.36%;
+    				right: 57.6%;
+				}
+			}
+		}
+
+		&__extras {
+			margin: 25px 0 0 0;
+			text-align: center;
+
+			&-inner {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+
+		&__footer {
+			margin-top: 70px;
 		}
 	}
 }

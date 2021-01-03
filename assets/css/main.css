@@ -1688,6 +1688,18 @@ html, body {
   background-size: 45%;
 }
 
+@media (max-width: 1440px) {
+  .holder:nth-last-of-type(2) .holder-slider__descr {
+    background-position: right 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .holder:nth-last-of-type(2) .holder-slider__descr {
+    background-size: 0;
+  }
+}
+
 .holder__slider {
   margin-top: 80px;
 }
@@ -2022,6 +2034,7 @@ input[type=number] {
 .surfboard__desc-mark {
   cursor: pointer;
   position: relative;
+  z-index: 10;
   width: 20px;
   height: 20px;
   background-color: #fff;
@@ -2105,15 +2118,16 @@ input[type=number] {
   text-align: center;
 }
 
+.shop__extras-inner {
+  margin-right: -57px;
+}
+
 .shop__extras-box {
   flex-direction: column;
   align-items: center;
   margin-right: 57px;
+  width: 160px;
   font-size: 18px;
-}
-
-.shop__extras-box:last-child {
-  margin-right: 0;
 }
 
 .shop__extras-title {
@@ -2124,6 +2138,7 @@ input[type=number] {
 
 .shop__extras-img {
   height: 103px;
+  min-width: 120px;
 }
 
 .shop__extras-img img {
@@ -2170,10 +2185,70 @@ input[type=number] {
   .shop__slide {
     padding-left: 25px;
   }
-  .shop__slide__info {
+  .shop__slide-info {
     padding-top: 50px;
   }
-  .shop__slide__rating {
+  .shop__slide-rating {
     margin: 10px 0 0 -18px;
+  }
+  .shop__surfboard {
+    min-width: 160px;
+    width: 160px;
+    height: 487.7px;
+  }
+  .surfboard__desc-text {
+    font-size: 18px;
+    left: 35px;
+    transition: transform 0.3s, opacity 0.1s;
+  }
+  .surfboard__desc-mark.active + .surfboard__desc-text {
+    transition: transform 0.3s, opacity 0.3s 0.1s;
+  }
+  .surfboard__desc-text::before {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .shop__slider-nav {
+    right: 25px;
+  }
+  .shop__slide {
+    flex-direction: column;
+  }
+  .shop__slide-info {
+    padding-top: 15px;
+  }
+  .shop__slide-content {
+    margin-top: 35px;
+  }
+  .shop__footer {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop__slide-info {
+    padding-top: 15px;
+  }
+  .shop__slide-content {
+    flex-direction: column;
+    margin-top: 35px;
+    padding-left: 0;
+  }
+  .surfboard__desc:nth-of-type(1) {
+    top: 8.36%;
+    right: 57.6%;
+  }
+  .shop__extras {
+    margin: 25px 0 0 0;
+    text-align: center;
+  }
+  .shop__extras-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .shop__footer {
+    margin-top: 70px;
   }
 }
